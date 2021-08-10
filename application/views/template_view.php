@@ -147,122 +147,123 @@
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
-                
+                <?php 
+                //admin
+                if($this->session->userdata('level') == 1){
+                ?>
                     <ul class="list">
-                    <li>
-                        <a href="<?php echo base_url('dashboard'); ?>">
-                            <i class="material-icons">home</i>
-                            <span>Home  </span>
-                        </a>
-                    </li> 
-  
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle" >
-                            <i class="material-icons">dns</i>
-                            <span>Master</span>
-                        </a>
-                        <ul class="ml-menu">
-                    
-                    <li>
-                        <a href="<?php echo base_url('barang'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Barang</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('kategori_barang'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Kategori Barang</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('sub_kategori_barang'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Sub Kategori Barang</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('instansi'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Instansi</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('kategori_instansi'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Kategori Instansi</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('pegawai'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Pegawai</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('jabatan'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Jabatan</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('user'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>User Account</span>
-                        </a>
-                    </li> 
-                       
-                        </ul>
-                    </li>
-
+                        <li>
+                            <a href="<?php echo base_url('dashboard'); ?>">
+                                <i class="material-icons">home</i>
+                                <span>Home  </span>
+                            </a>
+                        </li>  
+                        <li>
+                            <a href="javascript:void(0);" class="menu-toggle" >
+                                <i class="material-icons">dns</i>
+                                <span>Master</span>
+                            </a>
+                            <ul class="ml-menu">   
+                                <li>
+                                    <a href="<?php echo base_url('pegawai'); ?>">
+                                    <i class="material-icons">dns</i>
+                                        <span>Pegawai</span>
+                                    </a>
+                                </li> 
+                                <li>
+                                    <a href="<?php echo base_url('jabatan'); ?>">
+                                    <i class="material-icons">dns</i>
+                                        <span>Jabatan</span>
+                                    </a>
+                                </li> 
+                                <li>
+                                    <a href="<?php echo base_url('user'); ?>">
+                                    <i class="material-icons">dns</i>
+                                        <span>User Account</span>
+                                    </a>
+                                </li>  
+                            </ul>
+                        </li> 
                  
-                      <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">dns</i>
-                            <span>Transaksi</span>
-                        </a>
-                        <ul class="ml-menu">
-                 
-                    <li>
-                        <a href="<?php echo base_url('pengeluaran_barang'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Pengeluaran Barang</span>
-                        </a>
-                    </li>
-                   
+                        <li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">dns</i>
+                                <span>Transaksi</span>
+                            </a>
+                                <ul class="ml-menu"> 
+                                    <li>
+                                        <a href="<?php echo base_url('pengeluaran_barang'); ?>">
+                                        <i class="material-icons">dns</i>
+                                            <span>Upload File</span>
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="<?php echo base_url('pengeluaran_barang'); ?>">
+                                        <i class="material-icons">dns</i>
+                                            <span>Approval</span>
+                                        </a>
+                                    </li> 
+                                </ul>
+                        </li> 
+                    </ul>  
+                <?php 
+                //approval
+                }else if($this->session->userdata('level') == 2){
+                ?> 
+                    <ul class="list">
+                        <li>
+                            <a href="<?php echo base_url('dashboard'); ?>">
+                                <i class="material-icons">home</i>
+                                <span>Home  </span>
+                            </a>
+                        </li>   
+                        <li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">dns</i>
+                                <span>Transaksi</span>
+                            </a>
+                                <ul class="ml-menu">  
+                                    <li>
+                                        <a href="<?php echo base_url('pengeluaran_barang'); ?>">
+                                        <i class="material-icons">dns</i>
+                                            <span>Approval</span>
+                                        </a>
+                                    </li> 
+                                </ul>
+                        </li> 
+                    </ul>
+                
+                <?php 
+                //staff
+                }else{
+                ?> 
+                    <ul class="list">
+                        <li>
+                            <a href="<?php echo base_url('dashboard'); ?>">
+                                <i class="material-icons">home</i>
+                                <span>Home</span>
+                            </a>
+                        </li>  
+                        
+                        <li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">dns</i>
+                                <span>Transaksi</span>
+                            </a>
+                                <ul class="ml-menu"> 
+                                    <li>
+                                        <a href="<?php echo base_url('pengeluaran_barang'); ?>">
+                                        <i class="material-icons">dns</i>
+                                            <span>Upload File</span>
+                                        </a>
+                                    </li>   
+                                </ul>
+                        </li> 
+                    </ul>
+                <?php 
+                }
+                ?>
                     
-                        </ul>
-                    </li>
-
-
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">dns</i>
-                            <span>Report</span>
-                        </a>
-                        <ul class="ml-menu">
-                 
-                    <li>
-                        <a href="<?php echo base_url('report_out'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Pengeluaran Barang</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('report'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Laporan Stock Realtime</span>
-                        </a>
-                    </li> 
-                     
-                    
-                        </ul>
-                    </li>
-                     
-                    
-                </ul>
-				<!--list menu-->
-			    
             </div>
             <!-- #Menu -->
             <!-- Footer -->
@@ -281,12 +282,7 @@
              
                     <div class="demo-settings">
                         <p> Welcome <?php echo $this->session->userdata('username') . " !"; ?> </p>
-                        <p> Level :  <?php echo level_help($this->session->userdata('level')); ?> </p>
-                         
-                        <div align="center">
-                            <img src="<?php echo base_url('upload/'.$this->session->userdata('foto')); ?>" style="width:100px; height:100px;">
-                        </div>
- 
+                     
                         <ul class="demo-choose-skin">
                        
                          <a href="<?php echo base_url('login/logout'); ?>">

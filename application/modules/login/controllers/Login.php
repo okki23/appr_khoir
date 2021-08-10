@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
 class Login extends Parent_Controller {
  
-  	var $nama_tabel = 'm_user';
-  	var $daftar_field = array('id','id_user','username','password','user_insert','date_insert','user_update','date_update');
+  	var $nama_tabel = 'user';
+  	var $daftar_field = array('id','username','password','id_pegawai','level');
   	var $primary_key = 'id';
 
  	public function __construct(){
@@ -26,7 +26,7 @@ class Login extends Parent_Controller {
 			$session = $this->m_login->autentikasi($username,$password)->row();
 			 
 			if($auth->num_rows() > 0){
-				$this->session->set_userdata(array('username'=>$session->username,'level'=>$session->level,'userid'=>$session->id,'foto'=>$session->foto));
+				$this->session->set_userdata(array('username'=>$session->username,'level'=>$session->level,'userid'=>$session->id));
 				 
 
 				if($session->level == '1'){

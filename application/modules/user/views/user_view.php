@@ -82,9 +82,9 @@
                                         <br>
                                         <input type="hidden" name="level" id="level">
 
-                                        <button type="button" id="adminbtn" class="btn btn-default waves-effect "> Approval </button>
-
-                                        <button type="button" id="userbtn" class="btn btn-default waves-effect "> Uploader </button>
+                                        <button type="button" id="adminbtn" class="btn btn-default waves-effect "> Admin </button>
+                                        <button type="button" id="userbtn" class="btn btn-default waves-effect "> Staff </button>
+                                        <button type="button" id="approvalbtn" class="btn btn-default waves-effect "> Approval </button>
                                     
                                     </div>
                                  
@@ -106,7 +106,7 @@
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" >Cari Jabatan</h4>
+                            <h4 class="modal-title" >Cari Pegawai</h4>
                         </div>
                         <div class="modal-body">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">X Tutup</button>
@@ -140,16 +140,22 @@
      $("#adminbtn").on("click",function(){
         $("#level").val('1');
         $(this).attr('class','btn btn-primary');
-        $("#userbtn").attr('class','btn btn-default');
-
+        $("#userbtn").attr('class','btn btn-default'); 
+        $("#approvalbtn").attr('class','btn btn-default'); 
     });
 
     $("#userbtn").on("click",function(){
-        $("#level").val('2');
-       $(this).attr('class','btn btn-primary');
-        $("#adminbtn").attr('class','btn btn-default');
+        $("#level").val('3');
+        $(this).attr('class','btn btn-primary');
+        $("#adminbtn").attr('class','btn btn-default'); 
+        $("#approvalbtn").attr('class','btn btn-default'); 
+    });
 
-         
+    $("#approvalbtn").on("click",function(){
+        $("#level").val('2');
+        $(this).attr('class','btn btn-primary');
+        $("#adminbtn").attr('class','btn btn-default'); 
+        $("#userbtn").attr('class','btn btn-default'); 
     });
 
     function CariKaryawan(){
@@ -189,9 +195,11 @@
                  if(result.level == '1'){
                     $("#adminbtn").attr('class','btn btn-primary');
                     $("#userbtn").attr('class','btn btn-default');
-                 }else{
+                    $("#approvalbtn").attr('class','btn btn-default');
+                 }else if(result.level =='2'){
                     $("#adminbtn").attr('class','btn btn-default');
                     $("#userbtn").attr('class','btn btn-primary');
+                    $("#approvalbtn").attr('class','btn btn-primary');
                  }
              }
          });
