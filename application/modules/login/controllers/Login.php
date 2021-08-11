@@ -18,22 +18,14 @@ class Login extends Parent_Controller {
 	public function autentikasi(){
 	 
 		$username = $this->input->post('username');
-		$password = base64_encode($this->input->post('password'));
-		  
+		$password = base64_encode($this->input->post('password')); 
 			 
-			$auth = $this->m_login->autentikasi($username,$password);
-			 
+			$auth = $this->m_login->autentikasi($username,$password); 
 			$session = $this->m_login->autentikasi($username,$password)->row();
 			 
 			if($auth->num_rows() > 0){
 				$this->session->set_userdata(array('username'=>$session->username,'level'=>$session->level,'userid'=>$session->id));
-				 
-
-				if($session->level == '1'){
 					redirect(base_url('dashboard'));
-				}else{
-					redirect(base_url('front'));
-				}
 			}else{
 				echo "<script language=javascript>
 				alert('Akun yang anda masukkan tidak tersedia, Periksa kembali!');

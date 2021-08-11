@@ -46,12 +46,10 @@ class Parent_Model extends CI_Model {
             $this->db->set($save);
             return $this->db->insert($nama_tabel);
            
-        } else {
-            
+        } else { 
             $this->db->set($update);
             $this->db->where($primary_key, $id);
-            return $this->db->update($nama_tabel);
-           
+            return $this->db->update($nama_tabel); 
         }
 
  	}

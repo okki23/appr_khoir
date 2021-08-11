@@ -192,13 +192,13 @@
                             </a>
                                 <ul class="ml-menu"> 
                                     <li>
-                                        <a href="<?php echo base_url('pengeluaran_barang'); ?>">
+                                        <a href="<?php echo base_url('upload_excel'); ?>">
                                         <i class="material-icons">dns</i>
                                             <span>Upload File</span>
                                         </a>
                                     </li> 
                                     <li>
-                                        <a href="<?php echo base_url('pengeluaran_barang'); ?>">
+                                        <a href="<?php echo base_url('approval'); ?>">
                                         <i class="material-icons">dns</i>
                                             <span>Approval</span>
                                         </a>

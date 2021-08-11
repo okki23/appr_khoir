@@ -11,20 +11,16 @@
                         <div class="header">
                             <h2>
                               Selamat Datang di <?php echo $judul; ?> 
+                              <?php 
+                                // echo "<br>level:".$this->session->userdata('level');
+                                // echo "<br>userid:".$this->session->userdata('userid');
+                                // echo "<br>username:".$this->session->userdata('username');
+                              ?>
                             </h2>
                             <br>
                             
-                        <div class="body">
-                           
-             
-                
-            
-                
-
-                </div>
-             
-          
-                
+                        <div class="body"> 
+                </div> 
             </div>
 
  

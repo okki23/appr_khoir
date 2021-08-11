@@ -11,7 +11,7 @@
  Target Server Version : 100419
  File Encoding         : 65001
 
- Date: 10/08/2021 14:13:30
+ Date: 11/08/2021 21:09:02
 */
 
 SET NAMES utf8mb4;
@@ -52,7 +52,7 @@ CREATE TABLE `pegawai`  (
   `email` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `id_jabatan` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of pegawai
@@ -60,6 +60,7 @@ CREATE TABLE `pegawai`  (
 INSERT INTO `pegawai` VALUES (1, '9999999', 'Admin', '0', '-', '-', 0);
 INSERT INTO `pegawai` VALUES (2, '8786724', 'Okki', '021843854', 'Jl.A', 'ok@mail.com', 9);
 INSERT INTO `pegawai` VALUES (3, '278424', 'Muryan', '02184375', 'Jl.Nangka', 'ryan@mail.com', 1);
+INSERT INTO `pegawai` VALUES (4, '238488', 'Joni', '021454574', 'Jl.Semangkat', 'joni@mail.com', 4);
 
 -- ----------------------------
 -- Table structure for t_file
@@ -105,11 +106,14 @@ CREATE TABLE `user`  (
   `id_pegawai` int NULL DEFAULT NULL,
   `level` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'admin', '0cc175b9c0f1b6a831c399e269772661', 99, 1);
+INSERT INTO `user` VALUES (2, 'okki', '0cc175b9c0f1b6a831c399e269772661', 2, 2);
+INSERT INTO `user` VALUES (3, 'muryan', '0cc175b9c0f1b6a831c399e269772661', 3, 3);
+INSERT INTO `user` VALUES (4, 'joni', '0cc175b9c0f1b6a831c399e269772661', 4, 3);
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -86,17 +86,7 @@ f
                                                     <button type="button" onclick="PilihJabatan();" class="btn btn-primary"> Pilih Jabatan.. </button>
                                                 </span>
                                     </div> 
-									<div class="form-group">
-                                        <div class="form-line">
-											Upload pegawai 
-											<input type="file" name="user_image" id="user_image" class="form-control" onchange="PreviewGambar(this);" placeholder="pegawai" />  
-                                        </div>
-										   <input type="hidden" name="foto" id="foto">
-                                    </div>
-                                    <br>
-                                    <img onerror="this.onerror=null;this.src='<?php echo base_url('upload/image_prev.jpg'); ?>';" id="image1" src="<?php echo base_url('upload/image_prev.jpg');?>" style="height: 300px;" alt="..." class="img-rounded img-responsive">
-                                    <br>
-								  
+									  
 
 								    <button type="button" onclick="Simpan_Data();" class="btn btn-success waves-effect"> <i class="material-icons">save</i> Simpan</button>
 
@@ -180,17 +170,7 @@ f
 								<td> : </td>
 								<td> <p id="emaildtl"> </p> </td> 
 							</tr>
-							 
-							<tr>
-								<td style="font-weight:bold;"> Foto  </td> 
-								<td colspan="4">  : </td> 
-							</tr> 
-							<tr>
-								<td colspan="6" align="center">  
-								<img src="" class="img responsive" style="width:50%; height: 50%;" id="foto_dtl">
-								</td>
-							</tr>
-						 
+							  
 							 <div class="modal-footer">
 							  <button type="button" class="btn btn-danger" data-dismiss="modal"> X Tutup </button>
 							 </div>
@@ -336,13 +316,8 @@ f
   
 	function Simpan_Data(){
 	 
-		 var formData = new FormData($('#user_form')[0]); 
-
+		 var formData = new FormData($('#user_form')[0]);  
           
-         var foto = $('#foto').val();
-		 var extension = $('#foto').val().split('.').pop().toLowerCase();  
-  
-           
             $.ajax({
              url:"<?php echo base_url(); ?>pegawai/simpan_data",
              type:"POST",

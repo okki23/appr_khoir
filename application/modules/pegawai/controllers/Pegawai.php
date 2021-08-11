@@ -6,7 +6,7 @@ class Pegawai extends Parent_Controller {
   
 
   var $nama_tabel = 'm_pegawai';
-  var $daftar_field = array('id','nip','nama','telp','alamat','email','id_jabatan','foto');
+  var $daftar_field = array('id','nip','nama','telp','alamat','email','id_jabatan');
   var $primary_key = 'id';
  
   
@@ -51,15 +51,8 @@ class Pegawai extends Parent_Controller {
 	 
 	public function hapus_data(){
 		$id = $this->uri->segment(3);  
-    //cek apakah pegawai/gambar tersedia
-		$cek_pegawai = $this->db->where($this->primary_key,$id)->get($this->nama_tabel)->row(); 
    
-		if($cek_pegawai->pegawai != '' || $cek_pegawai->pegawai != NULL){
-          //apabila pegawai ada maka dihapus,apabila sebaliknya maka tidak dihapus
-          unlink("upload/".str_replace(" ","_",$cek_pegawai->pegawai));
-		}   
-
-    $sqlhapus = $this->m_pegawai->hapus_data($id);
+    	$sqlhapus = $this->m_pegawai->hapus_data($id);
 		
 		if($sqlhapus){
 			$result = array("response"=>array('message'=>'success'));
