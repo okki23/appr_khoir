@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Pegawai extends Parent_Controller {
   
 
-  var $nama_tabel = 'm_pegawai';
+  var $nama_tabel = 'pegawai';
   var $daftar_field = array('id','nip','nama','telp','alamat','email','id_jabatan');
   var $primary_key = 'id';
  
@@ -43,8 +43,8 @@ class Pegawai extends Parent_Controller {
    
 	public function get_data_edit(){
 		$id = $this->uri->segment(3); 
-		$sql = "select a.*,b.nama_jabatan from m_pegawai a
-		left join m_jabatan b on b.id = a.id_jabatan where a.id = '".$id."' "; 
+		$sql = "select a.*,b.nama_jabatan from pegawai a
+		left join jabatan b on b.id = a.id_jabatan where a.id = '".$id."' "; 
 		$get = $this->db->query($sql)->row();
 		echo json_encode($get,TRUE);
 	}

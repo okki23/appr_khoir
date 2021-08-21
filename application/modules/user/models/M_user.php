@@ -14,8 +14,8 @@ class M_user extends Parent_Model {
         $this->load->database();
   }
   public function fetch_user(){   
-		   $getdata = $this->db->query('select a.*,b.nama, case when (a.level=1) then "admin" when(a.level=2) then "approval" else "staff" end as levelnya from m_user a
-               left join m_pegawai b on b.id = a.id_pegawai')->result();
+		   $getdata = $this->db->query('select a.*,b.nama, case when (a.level=1) then "admin" when(a.level=2) then "approval" else "staff" end as levelnya from user a
+               left join pegawai b on b.id = a.id_pegawai')->result();
 		   $data = array();  
 		   $no = 1;
            foreach($getdata as $row)  

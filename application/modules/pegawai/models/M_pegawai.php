@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_pegawai extends Parent_Model { 
    
-      var $nama_tabel = 'm_pegawai';
+      var $nama_tabel = 'pegawai';
       var $daftar_field = array('id','nip','nama','telp','alamat','email','id_jabatan');
       var $primary_key = 'id';
 
@@ -13,8 +13,8 @@ class M_pegawai extends Parent_Model {
         $this->load->database();
   }
   public function fetch_pegawai(){
-       $sql = "select a.*,b.nama_jabatan from m_pegawai a
-       left join m_jabatan b on b.id = a.id_jabatan";   
+       $sql = "select a.*,b.nama_jabatan from pegawai a
+       left join jabatan b on b.id = a.id_jabatan";   
 		   $getdata = $this->db->query($sql)->result();
 		   $data = array();  
 		   $no = 1;
@@ -36,28 +36,6 @@ class M_pegawai extends Parent_Model {
 		   return $output = array("data"=>$data);
 		    
     }
-
-    public function fetch_cat_pegawai(){   
-       $getdata = $this->db->get('m_cat_pegawai')->result();
-       $data = array();  
-       $no = 1;
-           foreach($getdata as $row)  
-           {  
-                $sub_array = array();  
-                $sub_array[] = $no;
-                $sub_array[] = $row->deskripsi;   
-                $sub_array[] = $row->id;   
-                
-                $data[] = $sub_array;  
-                 $no++;
-           }  
-          
-       return $output = array("data"=>$data);
-        
-    }
-
   
-  
-	 
  
 }

@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
  
-class jabatan extends Parent_Controller {
+class Jabatan extends Parent_Controller {
  
-  var $nama_tabel = 'm_jabatan';
+  var $nama_tabel = 'jabatan';
   var $daftar_field = array('id','nama_jabatan');
   var $primary_key = 'id';
   

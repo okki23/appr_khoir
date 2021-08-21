@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_jabatan extends Parent_Model { 
   
  
-     var $nama_tabel = 'm_jabatan';
+     var $nama_tabel = 'jabatan';
      var $daftar_field = array('id','nama_jabatan');
      var $primary_key = 'id';
   
@@ -17,7 +17,7 @@ class M_jabatan extends Parent_Model {
 
   public function fetch_jabatan(){
       
-       $getdata = $this->db->get('m_jabatan')->result();
+       $getdata = $this->db->get('jabatan')->result();
        $data = array();  
       
            foreach($getdata as $row)  

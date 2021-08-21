@@ -55,7 +55,7 @@ f
                                  <div class="input-group">
                                                 <div class="form-line">
                                                     <input type="text" name="nama" id="nama" class="form-control" required readonly="readonly" >
-                                                    <input type="text" name="user_id" id="user_id" required>
+                                                    <input type="hidden" name="user_id" id="user_id" required>
                                                     
                                                 </div>
                                                 <span class="input-group-addon">
@@ -127,7 +127,7 @@ f
 	
 	<!-- detail data upload_excel -->
 	<div class="modal fade" id="DetailModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title">Detail Data</h4>
@@ -136,39 +136,86 @@ f
 						
 						<table class="table table-responsive">
                         <tr>
-								<td style="font-weight:bold;"> NIP</td>
+								<td style="font-weight:bold;"> Approval 1</td>
 								<td> : </td>
-								<td> <p id="nipdtl"> </p> </td>
+								<td> <p id="approval1"> </p> </td>
 								
-								<td style="font-weight:bold;"> Nama</td>
+								<td style="font-weight:bold;"> Date Approval 1 </td>
 								<td> : </td>
-								<td> <p id="namadtl"> </p> </td> 
+								<td> <p id="dapproval1"> </p> </td> 
 							</tr>
 							 
 							<tr>
-								<td style="font-weight:bold;"> Jabatan</td>
+								<td style="font-weight:bold;"> Approval 2</td>
 								<td> : </td>
-								<td> <p id="nama_jabatandtl"> </p> </td>
+								<td> <p id="approval2"> </p> </td>
 								
-								<td style="font-weight:bold;"> Telp</td>
+								<td style="font-weight:bold;"> Date Approval 2</td>
 								<td> : </td>
-								<td> <p id="telpdtl"> </p> </td> 
+								<td> <p id="dapproval2"> </p> </td> 
                             </tr>
                             
                             <tr>
-								<td style="font-weight:bold;"> Alamat</td>
+								<td style="font-weight:bold;"> Approval 3</td>
 								<td> : </td>
-								<td> <p id="alamatdtl"> </p> </td>
+								<td> <p id="approval3"> </p> </td>
 								
-								<td style="font-weight:bold;"> Email</td>
+								<td style="font-weight:bold;"> Date Approval 3</td>
 								<td> : </td>
-								<td> <p id="emaildtl"> </p> </td> 
+								<td> <p id="dapproval3"> </p> </td> 
+							</tr>
+
+                            <tr>
+								<td style="font-weight:bold;"> Approval 4</td>
+								<td> : </td>
+								<td> <p id="approval4"> </p> </td>
+								
+								<td style="font-weight:bold;"> Date Approval 4</td>
+								<td> : </td>
+								<td> <p id="dapproval4"> </p> </td> 
+							</tr>
+
+                            <tr>
+								<td style="font-weight:bold;"> Approval 5</td>
+								<td> : </td>
+								<td> <p id="approval5"> </p> </td>
+								
+								<td style="font-weight:bold;"> Date Approval 5</td>
+								<td> : </td>
+								<td> <p id="dapproval5"> </p> </td> 
+							</tr>
+
+                            <tr>
+								<td style="font-weight:bold;"> Approval 6</td>
+								<td> : </td>
+								<td> <p id="approval6"> </p> </td>
+								
+								<td style="font-weight:bold;"> Date Approval 6</td>
+								<td> : </td>
+								<td> <p id="dapproval6"> </p> </td> 
+							</tr>
+
+                            <tr>
+								<td style="font-weight:bold;"> Approval 7</td>
+								<td> : </td>
+								<td> <p id="approval7"> </p> </td>
+								
+								<td style="font-weight:bold;"> Date Approval 7</td>
+								<td> : </td>
+								<td> <p id="dapproval7"> </p> </td> 
+							</tr>
+
+                            <tr>
+								<td style="font-weight:bold;"> Approval 8</td>
+								<td> : </td>
+								<td> <p id="approval8"> </p> </td>
+								
+								<td style="font-weight:bold;"> Date Approval 8</td>
+								<td> : </td>
+								<td> <p id="dapproval8"> </p> </td> 
 							</tr>
 							 
-							<tr>
-								<td style="font-weight:bold;"> Foto  </td> 
-								<td colspan="4">  : </td> 
-							</tr> 
+						 
 							<tr>
 								<td colspan="6" align="center">  
 								<img src="" class="img responsive" style="width:50%; height: 50%;" id="foto_dtl">
@@ -186,6 +233,8 @@ f
                 </div>
     </div>
 			
+
+    
  
    <script type="text/javascript">
 	 
@@ -208,24 +257,33 @@ f
             $("#PilihPegawaiModal").modal('hide');
         } );
 
-
-	 function Show_Detail(id){ 
+        function Show_Detail(id){ 
 		$("#DetailModal").modal({backdrop: 'static', keyboard: false,show:true});
 		$.ajax({
-			 url:"<?php echo base_url(); ?>upload_excel/get_data_edit/"+id,
+			 url:"<?php echo base_url(); ?>approval/fetch_detail/"+id,
 			 type:"GET",
 			 dataType:"JSON", 
 			 success:function(result){  
-                 var nf = new Intl.NumberFormat();
-                 $("#id_jabatandtl").html(result.id_jabatan);
-                 $("#nama_jabatandtl").html(result.nama_jabatan);
-                 $("#nipdtl").html(result.nip); 
-                 $("#namadtl").html(result.nama); 
-                 $("#telpdtl").html(result.telp); 
-                 $("#alamatdtl").html(result.alamat); 
-                 $("#emaildtl").html(result.email);  
-				 $("#foto_dtl").attr("src","upload/"+result.foto); 
-				 
+                 console.log(result); 
+                 var nf = new Intl.NumberFormat(); 
+                 $("#approval1").html('<label class="btn btn-lg btn-success">'+result.apr1+'</label>'); 
+                 $("#dapproval1").html('<label class="btn btn-lg btn-success">'+result.date_approve_1+'</label>'); 
+                 $("#approval2").html('<label class="btn btn-lg btn-success">'+result.apr2+'</label>'); 
+                 $("#dapproval2").html('<label class="btn btn-lg btn-success">'+result.date_approve_2+'</label>'); 
+                 $("#approval3").html('<label class="btn btn-lg btn-success">'+result.apr3+'</3label>'); 
+                 $("#dapproval3").html('<label class="btn btn-lg btn-success">'+result.date_approve_3+'</label>'); 
+                 $("#approval4").html('<label class="btn btn-lg btn-success">'+result.apr4+'</label>'); 
+                 $("#dapproval4").html('<label class="btn btn-lg btn-success">'+result.date_approve_4+'</label>'); 
+
+                 $("#approval5").html('<label class="btn btn-lg btn-success">'+result.apr5+'</label>'); 
+                 $("#dapproval5").html('<label class="btn btn-lg btn-success">'+result.date_approve_5+'</label>'); 
+                 $("#approval6").html('<label class="btn btn-lg btn-success">'+result.apr6+'</label>'); 
+                 $("#dapproval6").html('<label class="btn btn-lg btn-success">'+result.date_approve_6+'</label>'); 
+                 $("#approval7").html('<label class="btn btn-lg btn-success">'+result.apr7+'</3label>'); 
+                 $("#dapproval7").html('<label class="btn btn-lg btn-success">'+result.date_approve_7+'</label>'); 
+                 $("#approval8").html('<label class="btn btn-lg btn-success">'+result.apr8+'</label>'); 
+                 $("#dapproval8").html('<label class="btn btn-lg btn-success">'+result.date_approve_8+'</label>'); 
+ 
 			 }
 		 });
 	 }
@@ -271,10 +329,8 @@ f
             type: "GET",
             dataType: "JSON",
             success: function(data)
-            {
-			   
-               $('#example').DataTable().ajax.reload(); 
-			   
+            { 
+               $('#example').DataTable().ajax.reload();  
 			    $.notify("Data berhasil dihapus!", {
 					animate: {
 						enter: 'animated fadeInRight',
@@ -293,20 +349,40 @@ f
    
     }
 	}
+
+    function Approve(id){
+	 
+        $.ajax({
+            url : "<?php echo base_url('upload_excel/approve_excel_file')?>/"+id,
+            type: "GET",
+            dataType: "JSON",
+            success: function(data)
+            { 
+               $('#example').DataTable().ajax.reload();  
+			    $.notify("Data berhasil diapprove!", {
+					animate: {
+						enter: 'animated fadeInRight',
+						exit: 'animated fadeOutRight'
+					}  
+				 },{
+					type: 'success'
+					}); 
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error approve data');
+            }
+        });  
+	}
     
   
 	function Simpan_Data(){
-	 
-		 var formData = new FormData($('#user_form')[0]);  
-         var foto = $('#foto').val();
-		 var extension = $('#foto').val().split('.').pop().toLowerCase();  
+	   
+		 var formData = new FormData($('#user_form')[0]);   
          const user_image = $('#user_image').prop('files')[0]; 
-         var filetype = user_image.type;
-         console.log(filetype);
-         //application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-         //application/vnd.ms-excel
+         var filetype = user_image.type; 
          if(filetype == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || filetype == 'application/vnd.ms-excel'){
-            //  alert('File yang diizinkan hanya file XLS dan XLSX!');
+        
              $.ajax({
              url:"<?php echo base_url(); ?>upload_excel/simpan_data",
              type:"POST",
@@ -329,9 +405,7 @@ f
             }); 
          }else{
             alert('File yang diizinkan hanya file XLS dan XLSX!');
-         }
-            
-
+         } 
 	}
      
  

@@ -13,8 +13,8 @@ class M_login extends Parent_Model {
 	}
  
 	public function autentikasi($username,$password){
-        $sql = $this->db->query("select a.*,b.nip,b.nama from m_user a 
-        left join m_pegawai b on b.id = a.id_pegawai where username = '".$username."' AND password = '".$password."' "); 
+        $sql = $this->db->query("select a.*,b.nip,b.nama from user a 
+        left join pegawai b on b.id = a.id_pegawai where username = '".$username."' AND password = '".$password."' "); 
         return $sql;
 	}
  
