@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_user extends Parent_Model { 
  
 
-      var $nama_tabel = 'm_user';
+      var $nama_tabel = 'user';
       var $daftar_field = array('id','username','password','id_pegawai','level');
       var $primary_key = 'id';
 
